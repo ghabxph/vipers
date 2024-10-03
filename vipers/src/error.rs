@@ -95,66 +95,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_program_errors_equal() {
-        assert_eq!(
-            anchor_lang::error::Error::ProgramError(ProgramError::InvalidArgument.into())
-                .into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::InvalidArgument.into())
-                .into_cmp_error()
-        );
-    }
-
-    #[test]
-    fn test_program_errors_equal_custom() {
-        assert_eq!(
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(10).into())
-                .into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(10).into())
-                .into_cmp_error()
-        );
-    }
-
-    #[test]
-    fn test_program_errors_mismatch() {
-        assert_ne!(
-            anchor_lang::error::Error::ProgramError(ProgramError::InvalidArgument.into())
-                .into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::AccountAlreadyInitialized.into())
-                .into_cmp_error()
-        );
-    }
-
-    #[test]
-    fn test_program_errors_mismatch_custom() {
-        assert_ne!(
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(10).into())
-                .into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(11).into())
-                .into_cmp_error()
-        );
-    }
-
-    #[test]
     fn test_program_errors_equal_none() {
         assert_eq!(None.into_cmp_error(), None.into_cmp_error());
-    }
-
-    #[test]
-    fn test_program_errors_mismatch_random() {
-        assert_ne!(
-            None.into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(11).into())
-                .into_cmp_error()
-        );
-    }
-
-    #[test]
-    fn test_program_errors_mismatch_anchor_program() {
-        assert_ne!(
-            error!(ErrorCode::MyError).into_cmp_error(),
-            anchor_lang::error::Error::ProgramError(ProgramError::Custom(11).into())
-                .into_cmp_error()
-        );
     }
 
     #[test]

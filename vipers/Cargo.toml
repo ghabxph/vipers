@@ -1,9 +1,9 @@
 [package]
 name = "vipers"
-version = "2.0.6"
+version = "3.0.0"
 description = "Assorted checks and validations for writing safer Solana programs."
 homepage = "https://saber.so"
-repository = "https://github.com/saber-hq/vipers"
+repository = "https://github.com/ghabxph/vipers"
 authors = ["Saber Team <team@saber.so>"]
 license = "Apache-2.0"
 edition = "2021"
@@ -15,8 +15,8 @@ default = []
 ata = ["spl-associated-token-account"]
 
 [dependencies]
-anchor-lang = ">=0.22, <=0.30.1"
-anchor-spl = ">=0.22, <=0.30.1"
+anchor-lang = "0.30.1"
+anchor-spl = "0.30.1"
 num-traits = "^0.2.14"
 spl-associated-token-account = { version = "^1.0.3", features = [
     "no-entrypoint"
